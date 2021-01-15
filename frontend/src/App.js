@@ -1,8 +1,8 @@
 import './App.css';
 import axios from 'axios'
 // import './scss/_footer.scss'
-import React, { useState } from 'react';
-
+import React from 'react';
+import SocialFollow from "./SocialFollow"
 
 class App extends React.Component {
   constructor() {
@@ -24,21 +24,15 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div class="App" >
+      <div className="App" >
         {/* {console.log(this.state.projects)} */}
         <nav id="sidebar-wrapper">
           <ul className="sidebar-nav">
-            <li className="sidebar-brand">
-              <a className="js-scroll-trigger" href="#page-top">Start Bootstrap</a>
-            </li>
             <li className="sidebar-nav-item">
               <a className="js-scroll-trigger" href="#page-top">Home</a>
             </li>
             <li className="sidebar-nav-item">
               <a className="js-scroll-trigger" href="#about">About</a>
-            </li>
-            <li className="sidebar-nav-item">
-              <a className="js-scroll-trigger" href="#services">Services</a>
             </li>
             <li className="sidebar-nav-item">
               <a className="js-scroll-trigger" href="#portfolio">Portfolio</a>
@@ -74,20 +68,12 @@ class App extends React.Component {
         {/* <!-- Portfolio --> */}
         <section className="content-section" id="portfolio">
           <div className="d-flex flex-wrap justify-content-around ">
-            {/* {this.state.tips.tips ? (
-            this.state.tips.tips
-              .slice(0)
-              .reverse()
+            {this.state.projects ? (
+            this.state.projects
               .map(
                 (
-                  element: {
-                    tip_text: string;
-                    tip_img: string;
-                    _id: string;
-                    tip_title: string;
-                    user_name: string;
-                  },
-                  i: number
+                  element,
+                  i
                 ) => (
                   <div
                     key={i}
@@ -101,14 +87,9 @@ class App extends React.Component {
                       marginRight: "8px",
                     }}
                   >
-                    <Link
-                      to={{
-                        pathname: `/tips/tip/${element._id}`,
-                        state: { tip: element },
-                      }}
-                    >
+                   
                       <img
-                        src={element.tip_img}
+                        src={element.img}
                         style={{
                           margin: "0",
                           display: "block",
@@ -120,7 +101,7 @@ class App extends React.Component {
                           objectFit: 'cover'
 
                         }}
-                        alt="tip"
+                        alt="img"
                       // class="imgstyle"
                       ></img>
                       <div
@@ -142,7 +123,7 @@ class App extends React.Component {
                             paddingTop: "10px",
                           }}
                         >
-                          {element.tip_title.slice(0, 24)}...
+                          {element.tecn}
                         </p>
                         <p
                           style={{
@@ -152,10 +133,9 @@ class App extends React.Component {
                             fontSize: "15px",
                           }}
                         >
-                          By: {element.user_name}
+                          description :{element.description}
                         </p>
                       </div>
-                    </Link>
                   </div>
                 )
               )
@@ -165,30 +145,14 @@ class App extends React.Component {
                 alt="theimg"
                 style={{ width: "230px" }}
               ></img>
-            )} */}
+            )}
           </div>
         </section>
+            <SocialFollow/>
         {/* footer */}
-        <footer className="footer text-center">
-          <div className="container">
-            <ul className="list-inline mb-5">
-              <li className="list-inline-item">
-                <a className="social-link rounded-circle text-white mr-3" href="#!">
-                  <i className="icon-social-facebook"></i>
-                </a>
-              </li>
-              <li className="list-inline-item">
-                <a className="social-link rounded-circle text-white mr-3" href="#!">
-                  <i className="icon-social-twitter"></i>
-                </a>
-              </li>
-              <li className="list-inline-item">
-                <a className="social-link rounded-circle text-white" href="#!">
-                  <i className="icon-social-github"></i>
-                </a>
-              </li>
-            </ul>
-            <p className="text-muted small mb-0">Copyright &copy; Your Website 2020</p>
+        <footer >
+          <div style={{textAlign:'center'}} >
+            <p className="text-muted small mb-0">Copyright &copy; Hala Salhab 2020</p>
           </div>
         </footer>
       </div>
