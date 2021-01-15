@@ -25,7 +25,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App" >
-        {/* {console.log(this.state.projects)} */}
+        {console.log(this.state.projects)}
         <nav id="sidebar-wrapper">
           <ul className="sidebar-nav">
             <li className="sidebar-nav-item">
@@ -42,15 +42,12 @@ class App extends React.Component {
             </li>
           </ul>
         </nav>
-        <header className="masthead d-flex">
-          <div className="container text-center my-auto">
+        <header className="masthead d-flex" id='header'>
             <h1 className="mb-1">Hala Salhab</h1>
-            <h3 className="mb-5">
-              <em>I am a fullstack developer </em>
-            </h3>
-            <a className="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
+          <div className="wrapper">
+            <h2>I am a <span></span></h2>
+            {/* <a className="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a> */}
           </div>
-          <div className="overlay"></div>
         </header>
         {/* <!-- About --> */}
         <section className="content-section bg-light" id="about">
@@ -58,16 +55,60 @@ class App extends React.Component {
             <div className="row">
               <div className="col-lg-10 mx-auto">
                 <h2>Stylish Portfolio is the perfect theme for your next project!</h2>
-                <p className="lead mb-5">This theme features a flexible, UX friendly sidebar menu and stock photos from our friends at
-            <a href="https://unsplash.com/">Unsplash</a>!</p>
-                <a className="btn btn-dark btn-xl js-scroll-trigger" href="#services">What We Offer</a>
+                <p className="lead mb-5">This theme features a flexible, UX friendly sidebar menu and stock photos from our friends at</p>
               </div>
             </div>
           </div>
         </section>
         {/* <!-- Portfolio --> */}
-        <section className="content-section" id="portfolio">
-          <div className="d-flex flex-wrap justify-content-around ">
+     
+      
+    <section class="content-section" id="portfolio">
+    <div class="container">
+      <div class="content-section-heading text-center">
+        <h3 class="text-secondary mb-0">Portfolio</h3>
+        <h2 class="mb-5">Recent Projects</h2>
+      </div>
+      <div class="row no-gutters">
+      {this.state.projects ? (
+            this.state.projects
+              .map(
+                (
+                  element,
+                  i
+                ) => (
+                  <div class="col-lg-6">
+          <a class="portfolio-item" href="#!">
+            <div class="caption">
+              <div class="caption-content">
+                <div class="h2">{element.title}</div>
+                <p class="mb-0">{element.description}</p>
+              </div>
+            </div>
+            <img class="img-fluid" src={element.img} alt=""/>
+          </a>
+        </div>
+        
+                )
+              )
+          ) : (
+              <img
+                src="https://i.pinimg.com/originals/07/24/88/0724884440e8ddd0896ff557b75a222a.gif"
+                alt="theimg"
+                style={{ width: "230px" }}
+              ></img>
+            )}
+    </div>
+    </div>
+  </section>
+  
+        {/* <section className="content-section" id="portfolio">
+        <div class="container">
+      <div class="content-section-heading text-center">
+        <h3 class="text-secondary mb-0">Portfolio</h3>
+        <h2 class="mb-5">Recent Projects</h2>
+      </div>
+          <div className="d-flex flex-wrap justify-content-around">
             {this.state.projects ? (
             this.state.projects
               .map(
@@ -147,7 +188,8 @@ class App extends React.Component {
               ></img>
             )}
           </div>
-        </section>
+          </div>
+        </section> */}
             <SocialFollow/>
         {/* footer */}
         <footer >
