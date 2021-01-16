@@ -89,10 +89,6 @@
    height: auto;
    padding-top: 8rem;
    padding-bottom: 8rem;
-   /* background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../img/bg-masthead.jpg");
-   background-position: center center;
-   background-repeat: no-repeat;
-   background-size: cover; */
  }
  
  .masthead h1 {
@@ -423,17 +419,21 @@ a.instagram {
   background-size: cover;
   /* background-color: rgba(0,0,0,0.25); */
 }
-.wrapper{
-  position: absolute;
-  top: 50%;
-  left: 40%;
+.wrapper.span{
+  text-align: left;
   transform: translate(-50%,-50%);
-  display: flex;
   flex-wrap: wrap;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 .wrapper h2{
-  padding: 0;
-  margin: 0;
+  /* position: absolute */
+  /* padding: 0;
+  margin: 0; */
   color:rgb(25, 100, 238);
   text-shadow: 0 2px 0 rbga(0,0,0,0.5);
   font-size: 60px;

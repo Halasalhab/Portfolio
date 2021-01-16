@@ -1,6 +1,5 @@
 import './App.css';
 import axios from 'axios'
-// import './scss/_footer.scss'
 import React from 'react';
 import SocialFollow from "./SocialFollow"
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,7 +18,6 @@ class App extends React.Component {
       this.setState({
         projects: resp.data
       })
-      // console.log(resp.data);
     }).catch(err => {
       console.log(err)
     })
@@ -27,8 +25,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App" >
-        {console.log(this.state.projects)}
-        <nav id="sidebar-wrapper">
+        {/* {console.log(this.state.projects)} */}
+        {/* <nav id="sidebar-wrapper">
           <ul className="sidebar-nav">
             <li className="sidebar-nav-item">
               <a className="js-scroll-trigger" href="#page-top">Home</a>
@@ -43,13 +41,15 @@ class App extends React.Component {
               <a className="js-scroll-trigger" href="#contact">Contact</a>
             </li>
           </ul>
-        </nav>
+        </nav> */}
         <header className="masthead d-flex" id='header'>
-            <h1 className="mb-1" style={{color:'red'}}>Hala Salhab</h1>
-          <div className="wrapper">
+        
+          <div className="wrapper container text-center">
+            <h1 className="container text-left" style={{color:'red'}}>Hala Salhab</h1>
             <h2>I am a <span></span></h2>
             {/* <a className="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a> */}
           </div>
+          
         </header>
         {/* <!-- About --> */}
         <section className="content-section bg-light" id="about">
@@ -81,7 +81,7 @@ class App extends React.Component {
                   element,
                   i
                 ) => (
-                  <Card style={{ width: '50rem',margin:'20px',border:'none'}}>
+                  <Card style={{ width: '50rem',margin:'20px',border:'none'}} key={i}>
                   <Card.Img variant="top" src={element.img} style={{height:'50%'}}/>
                   <Card.Footer  >
                     <Card.Title>{element.title}:</Card.Title>
@@ -92,106 +92,12 @@ class App extends React.Component {
                 </Card>
                 )
               )
-          ) : (
-              <img
-                src="https://i.pinimg.com/originals/07/24/88/0724884440e8ddd0896ff557b75a222a.gif"
-                alt="theimg"
-                style={{ width: "230px" }}
-              ></img>
-            )}
+          ) : 
+              "loading.."
+            }
     </div>
   </section>
-  
-        {/* <section className="content-section" id="portfolio">
-        <div class="container">
-      <div class="content-section-heading text-center">
-        <h3 class="text-secondary mb-0">Portfolio</h3>
-        <h2 class="mb-5">Recent Projects</h2>
-      </div>
-          <div className="d-flex flex-wrap justify-content-around">
-            {this.state.projects ? (
-            this.state.projects
-              .map(
-                (
-                  element,
-                  i
-                ) => (
-                  <div
-                    key={i}
-                    style={{
-                      marginBottom: "60px",
-                      height: "280px",
-                      width: "280px",
-                      position: "relative",
-                      paddingTop: "40px",
-                      marginLeft: "8px",
-                      marginRight: "8px",
-                    }}
-                  >
-                   
-                      <img
-                        src={element.img}
-                        style={{
-                          margin: "0",
-                          display: "block",
-                          height: "100%",
-                          width: "100%",
-                          position: "relative",
-                          borderTopLeftRadius: "15px",
-                          borderTopRightRadius: "15px",
-                          objectFit: 'cover'
-
-                        }}
-                        alt="img"
-                      // class="imgstyle"
-                      ></img>
-                      <div
-                        style={{
-                          backgroundColor: "#e6f0fa",
-                          height: "80px",
-                          marginTop: "-17px",
-                          position: "relative",
-                          borderBottomLeftRadius: "15px",
-                          borderBottomRightRadius: "15px",
-                        }}
-                      >
-                        <p
-                          style={{
-                            marginLeft: "10px",
-                            color: "#A04D25",
-                            fontFamily: "Poly",
-                            fontSize: "20px",
-                            paddingTop: "10px",
-                          }}
-                        >
-                          {element.tecn}
-                        </p>
-                        <p
-                          style={{
-                            marginLeft: "10px",
-                            color: "#A04D25",
-                            fontFamily: "Poly",
-                            fontSize: "15px",
-                          }}
-                        >
-                          description :{element.description}
-                        </p>
-                      </div>
-                  </div>
-                )
-              )
-          ) : (
-              <img
-                src="https://i.pinimg.com/originals/07/24/88/0724884440e8ddd0896ff557b75a222a.gif"
-                alt="theimg"
-                style={{ width: "230px" }}
-              ></img>
-            )}
-          </div>
-          </div>
-        </section> */}
             <SocialFollow/>
-        {/* footer */}
         <footer >
           <div style={{textAlign:'center'}} >
             <p className="text-muted small mb-0">Copyright &copy; Hala Salhab 2020</p>
