@@ -362,7 +362,7 @@
  }
  
  .text-secondary {
-   color: #ecb807 !important;
+   color: #ecb807;
  }
  
 .social-container {
@@ -428,6 +428,8 @@ a.instagram {
   top: 50%;
   left: 40%;
   transform: translate(-50%,-50%);
+  display: flex;
+  flex-wrap: wrap;
 }
 .wrapper h2{
   padding: 0;
@@ -449,5 +451,17 @@ span:before{
   }
   100%{
     content: 'UI/UX Designer ';
+  }
+}
+@media screen and (min-width: 360px) {
+  #card0 {
+    font-size: 60px;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+  #card0 {
+    font-size: 30px;
   }
 }

@@ -57,6 +57,7 @@ class App extends React.Component {
             <div className="row">
               <div className="col-lg-10 mx-auto">
                 <h2>"live your life to the fullest!!"</h2>
+                <h1>About me:</h1>
                 <p className="lead mb-5">Hi there how are you doing ? it's Hala, i am a A recent graduate from RBK, and i have finished my first year in computer science at Palestine Polytechnic University, with an average of 85</p>
               </div>
             </div>
@@ -71,7 +72,8 @@ class App extends React.Component {
         <h3 className="text-secondary mb-0">Portfolio</h3>
         <h2 className="mb-5">Recent Projects</h2>
       </div>
-      {/* <div className="row no-gutters"> */}
+      <div className="col d-flex justify-content-center">
+
       {this.state.projects ? (
             this.state.projects
               .map(
@@ -79,24 +81,14 @@ class App extends React.Component {
                   element,
                   i
                 ) => (
-                  <Card style={{ width: '60rem', marginLeft:'20%'}}>
-                  <Card.Img variant="top" src={element.img}/>
-                  <Card.Body>
-                    <Card.Title>{element.title}</Card.Title>
-                    <Card.Text>
-                    {element.description}
+                  <Card style={{ width: '50rem',margin:'20px',border:'none'}}>
+                  <Card.Img variant="top" src={element.img} style={{height:'50%'}}/>
+                  <Card.Footer  >
+                    <Card.Title>{element.title}:</Card.Title>
+                    <Card.Text style={{display: 'flex'}}>
+                    {element.description}.
                     </Card.Text>
-                    {/* { element.deploylink !=='-' ?
-                      <Button variant="primary" onClick={window.location.href=element.deploylink}>Deployment link</Button>
-                    : (
-                      <img
-                        src="https://i.pinimg.com/originals/07/24/88/0724884440e8ddd0896ff557b75a222a.gif"
-                        alt="theimg"
-                        style={{ width: "230px" }}
-                      ></img>
-                    )
-                    } */}
-                  </Card.Body>
+                  </Card.Footer>
                 </Card>
                 )
               )
@@ -107,8 +99,7 @@ class App extends React.Component {
                 style={{ width: "230px" }}
               ></img>
             )}
-    
-    {/* </div> */}
+    </div>
   </section>
   
         {/* <section className="content-section" id="portfolio">
