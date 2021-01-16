@@ -3,6 +3,8 @@ import axios from 'axios'
 // import './scss/_footer.scss'
 import React from 'react';
 import SocialFollow from "./SocialFollow"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Card} from 'react-bootstrap';
 
 class App extends React.Component {
   constructor() {
@@ -43,7 +45,7 @@ class App extends React.Component {
           </ul>
         </nav>
         <header className="masthead d-flex" id='header'>
-            <h1 className="mb-1">Hala Salhab</h1>
+            <h1 className="mb-1" style={{color:'red'}}>Hala Salhab</h1>
           <div className="wrapper">
             <h2>I am a <span></span></h2>
             {/* <a className="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a> */}
@@ -54,8 +56,8 @@ class App extends React.Component {
           <div className="container text-center">
             <div className="row">
               <div className="col-lg-10 mx-auto">
-                <h2>Stylish Portfolio is the perfect theme for your next project!</h2>
-                <p className="lead mb-5">This theme features a flexible, UX friendly sidebar menu and stock photos from our friends at</p>
+                <h2>"live your life to the fullest!!"</h2>
+                <p className="lead mb-5">Hi there how are you doing ? it's Hala, i am a A recent graduate from RBK, and i have finished my first year in computer science at Palestine Polytechnic University, with an average of 85</p>
               </div>
             </div>
           </div>
@@ -63,13 +65,13 @@ class App extends React.Component {
         {/* <!-- Portfolio --> */}
      
       
-    <section class="content-section" id="portfolio">
-    <div class="container">
-      <div class="content-section-heading text-center">
-        <h3 class="text-secondary mb-0">Portfolio</h3>
-        <h2 class="mb-5">Recent Projects</h2>
+    <section className="content-section" id="portfolio">
+    
+      <div className="content-section-heading text-center">
+        <h3 className="text-secondary mb-0">Portfolio</h3>
+        <h2 className="mb-5">Recent Projects</h2>
       </div>
-      <div class="row no-gutters">
+      {/* <div className="row no-gutters"> */}
       {this.state.projects ? (
             this.state.projects
               .map(
@@ -77,18 +79,25 @@ class App extends React.Component {
                   element,
                   i
                 ) => (
-                  <div class="col-lg-6">
-          <a class="portfolio-item" href="#!">
-            <div class="caption">
-              <div class="caption-content">
-                <div class="h2">{element.title}</div>
-                <p class="mb-0">{element.description}</p>
-              </div>
-            </div>
-            <img class="img-fluid" src={element.img} alt=""/>
-          </a>
-        </div>
-        
+                  <Card style={{ width: '60rem', marginLeft:'20%'}}>
+                  <Card.Img variant="top" src={element.img}/>
+                  <Card.Body>
+                    <Card.Title>{element.title}</Card.Title>
+                    <Card.Text>
+                    {element.description}
+                    </Card.Text>
+                    {/* { element.deploylink !=='-' ?
+                      <Button variant="primary" onClick={window.location.href=element.deploylink}>Deployment link</Button>
+                    : (
+                      <img
+                        src="https://i.pinimg.com/originals/07/24/88/0724884440e8ddd0896ff557b75a222a.gif"
+                        alt="theimg"
+                        style={{ width: "230px" }}
+                      ></img>
+                    )
+                    } */}
+                  </Card.Body>
+                </Card>
                 )
               )
           ) : (
@@ -98,8 +107,8 @@ class App extends React.Component {
                 style={{ width: "230px" }}
               ></img>
             )}
-    </div>
-    </div>
+    
+    {/* </div> */}
   </section>
   
         {/* <section className="content-section" id="portfolio">
